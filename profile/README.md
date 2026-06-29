@@ -51,3 +51,8 @@ and a meaningful exit code. Most ship a `--check` mode that fails CI on the
 change that matters, so they slot into a pipeline or a pre-commit hook without
 adopting a platform. They are offline-first and dependency-light, and each is
 small enough for one engineer to maintain.
+
+## More
+
+Machine learning and MLOps work, and the rest of these projects, at
+[jmwebsoluciones.com](https://jmwebsoluciones.com).
