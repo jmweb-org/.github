@@ -1,40 +1,35 @@
-# JMWEB
+# jmweb-org
 
-Freelance Machine Learning / AI engineer based in Madrid, Spain. I build end-to-end ML systems, not notebooks. The focus is on getting models into production and on honest evaluation: leakage-free validation, calibrated probabilities, and reproducible workflows that can be tested and deployed.
+Small, well-made command-line tools for the daily workflow of machine learning
+and AI engineers. Each does one thing, runs offline, returns honest exit codes,
+and drops into CI. No services, no accounts, nothing to administer.
 
-This organization keeps its work private. The public, browsable projects live on my personal account: [github.com/delcenjo](https://github.com/delcenjo).
+## Tools
 
-## Focus areas
+- [gpu-gate](https://github.com/jmweb-org/gpu-gate) — Wait for a free GPU, claim
+  it, set `CUDA_VISIBLE_DEVICES`, and run your command. The wait-pick-export-run
+  loop for shared multi-GPU boxes without a cluster scheduler.
+- [dsdiff](https://github.com/jmweb-org/dsdiff) — A git-style diff between two
+  dataset files: schema changes plus column-level distribution drift (PSI), with
+  a CI gate.
+- [repro-manifest](https://github.com/jmweb-org/repro-manifest) — Capture a
+  portable manifest of a run's environment, code, config and seeds, then diff
+  two manifests to explain why two runs differed.
+- [mlenv](https://github.com/jmweb-org/mlenv) — Snapshot the full ML stack
+  (Python, CUDA, driver, torch build, GPUs, env vars) to one file and diff two
+  snapshots.
 
-- ML pipelines: data preparation, leakage-free validation, model comparison, honest evaluation.
-- NLP and LLM applications: RAG over documents, SQL and agent tools, evaluation harnesses.
-- Model serving and deployment: inference APIs, containers, CI/CD.
-- MLOps: reproducible, tested, deployable workflows; drift monitoring and observability.
+## Design
 
-## Featured projects
+The tools share a deliberate shape. Each is a single command that takes a file
+or two and returns a verdict: a readable terminal view, `--json` for machines,
+and a meaningful exit code. Most ship a `--check` mode that fails CI on the
+change that matters, so they slot into a pipeline or a pre-commit hook without
+adopting a platform. They are offline-first and dependency-light, and each is
+small enough for one engineer to maintain.
 
-- [credit-risk-platform](https://github.com/delcenjo/credit-risk-platform) — End-to-end MLOps platform for credit-default scoring: versioned training, FastAPI serving, PSI drift monitoring, Prometheus and Grafana, Docker and CI.
-- [transformer-from-scratch](https://github.com/delcenjo/transformer-from-scratch) — GPT-style language model and byte-pair tokenizer implemented from scratch in PyTorch, with an ablation study.
-- [credit-risk](https://github.com/delcenjo/credit-risk) — Credit-default risk model: leakage-safe pipeline, calibrated probabilities, cost-based decision threshold and error analysis.
-- [ai-insight-assistant](https://github.com/delcenjo/ai-insight-assistant) — Capstone: RAG and SQL agent with FastAPI, Streamlit and Docker.
-- [rag-document-assistant](https://github.com/delcenjo/rag-document-assistant) — Retrieval-augmented generation over a document corpus with source citations.
-- [llm-sql-agent](https://github.com/delcenjo/llm-sql-agent) — LLM agent that answers questions over a SQL database using tools, read-only.
-- [llm-eval-harness](https://github.com/delcenjo/llm-eval-harness) — Evaluation harness comparing an LLM against baseline classifiers on a concrete task.
-- [text-summarizer](https://github.com/delcenjo/text-summarizer) — Abstractive summariser with chunking for long documents (distilBART and Gradio).
-- [customer-churn-prediction](https://github.com/delcenjo/customer-churn-prediction) — End-to-end ML pipeline to predict telecom customer churn.
-- [math-for-ml](https://github.com/delcenjo/math-for-ml) — From-scratch NumPy implementations working through Mathematics for Machine Learning.
+## About
 
-## Stack
-
-- Machine learning: scikit-learn, XGBoost, LightGBM, pandas, NumPy.
-- Deep learning / NLP: PyTorch, Transformers, HuggingFace.
-- LLM applications: RAG, LangChain, OpenAI API.
-- Serving / infra: FastAPI, Pydantic, Docker, GitHub Actions (CI/CD).
-- Monitoring: Prometheus, Grafana, PSI drift.
-- Data: SQL, PostgreSQL.
-
-## Links
-
-- Portfolio: [delcenjo.github.io](https://delcenjo.github.io)
-- Code: [github.com/delcenjo](https://github.com/delcenjo)
-- Email: hola@jmwebsoluciones.com
+Maintained by José del Río, a machine learning engineer based in Madrid.
+Personal projects and demos live on a separate account:
+[github.com/delcenjo](https://github.com/delcenjo).
