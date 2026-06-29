@@ -27,9 +27,3 @@ and a meaningful exit code. Most ship a `--check` mode that fails CI on the
 change that matters, so they slot into a pipeline or a pre-commit hook without
 adopting a platform. They are offline-first and dependency-light, and each is
 small enough for one engineer to maintain.
-
-## About
-
-Maintained by José del Río, a machine learning engineer based in Madrid.
-Personal projects and demos live on a separate account:
-[github.com/delcenjo](https://github.com/delcenjo).
